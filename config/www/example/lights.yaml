@@ -1,0 +1,53 @@
+page_id: lights
+stylesheet: /local/example/lights.css
+
+image:
+  sizes:
+    - min_width: 0
+      location: /local/example/lights.svg
+      # cache: true
+
+defaults:
+  hover_action: hover-info
+  tap_action: more-info
+
+
+rules:
+  - name: Lights
+    entities:
+      - entity: light.light_1
+        element: area.light_1
+      - entity: light.light_2
+        element: area.light_2
+      - entity: light.light_3
+        element: area.light_3
+      - entity: light.light_4
+        element: area.light_4
+      - entity: light.light_5_1
+        element: area.light_5_1
+      - entity: light.light_5_2
+        element: area.light_5_2
+      - entity: light.light_6_1
+        element: area.light_6_1
+      - entity: light.light_6_2
+        element: area.light_6_2
+    tap_action: light.toggle
+    hold_action: more-info
+    state_action:
+      # simple on/off
+      # - service: floorplan.class_set
+      #   service_data:
+      #     element: ${entity.entity_id.replace("light.","light_overlay.")}
+      #     class: '${(entity.state === "on") ? "light-on" : "light-off"}'
+
+      # advanced on/off + brightness
+      - service: floorplan.style_set
+        service_data:
+          element: ${entity.entity_id.replace("light.","light_overlay.")}
+          style: |
+            >
+            var o = 0;
+            if (entity.state === "on") {
+              o = (typeof entity.attributes.brightness === 'number') ? (entity.attributes.brightness / 255).toFixed(2) : 1;
+            }
+            return `opacity: ${o}`;

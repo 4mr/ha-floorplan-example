@@ -1,0 +1,14 @@
+theme: Floorplan
+path: view
+panel: true
+type: panel
+icon: mdi:floor-plan
+cards:
+  - type: custom:floorplan-card
+    config:
+      # log_level: debug
+      # console_log_level: debug
+      pages:
+        - /local/example/master.yaml
+        - /local/example/home.yaml
+        - /local/example/lights.yaml

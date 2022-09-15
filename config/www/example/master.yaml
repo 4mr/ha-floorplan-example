@@ -1,0 +1,59 @@
+page_id: master
+stylesheet: /local/example/master.css
+
+master_page:
+  content_element: content
+
+defaults:
+  hover_action: hover-info
+  tap_action: more-info
+
+image:
+  sizes:
+    - min_width: 0
+      location: /local/example/master_mobile.svg
+      cache: true
+    - min_width: 1024
+      location: /local/example/master.svg
+      cache: true
+
+rules:
+
+  - name: Set Date/Time
+    entity:
+      - sensor.time
+      - sensor.date
+    state_action:
+      - service: floorplan.text_set
+        service_data:
+          text: ${entity.state}
+
+  # page navigate
+
+  - element: floorplan.button_home
+    tap_action:
+      - service: floorplan.page_navigate
+        service_data:
+          page_id: home
+      - service: floorplan.class_set
+        service_data:
+          element: floorplan.button_home
+          class: button-active
+      - service: floorplan.class_set
+        service_data:
+          element: floorplan.button_lights
+          class: button-inactive
+
+  - element: floorplan.button_lights
+    tap_action:
+      - service: floorplan.page_navigate
+        service_data:
+          page_id: lights
+      - service: floorplan.class_set
+        service_data:
+          element: floorplan.button_home
+          class: button-inactive
+      - service: floorplan.class_set
+        service_data:
+          element: floorplan.button_lights
+          class: button-active

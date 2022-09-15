@@ -1,0 +1,20 @@
+
+#lights #light-overlays image {
+	opacity: 0;
+	mix-blend-mode: lighten;
+	animation: 0.5s fadein;
+}
+
+#lights #areas path {
+	stroke: transparent;
+	stroke-width: 0;
+}
+
+#lights #areas path:hover {
+	/* fill: #fff; */
+	/* opacity: 0.2; */
+}
+
+#lights #light-overlays image.light-on {
+	opacity: 1;
+}

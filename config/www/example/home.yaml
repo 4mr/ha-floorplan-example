@@ -1,0 +1,79 @@
+page_id: home
+stylesheet: /local/example/home.css
+
+image:
+  sizes:
+    - min_width: 0
+      location: /local/example/home.svg
+      # cache: true
+
+defaults:
+  hover_action: hover-info
+  tap_action: more-info
+
+rules:
+  - name: Lights
+    entities:
+      - entity: light.light_1
+        element: light.light_1
+      - entity: light.light_2
+        element: light.light_2
+      - entity: light.light_3
+        element: light.light_3
+      - entity: light.light_4
+        element: light.light_4
+      - entity: light.light_5_1
+        element: light.light_5_1
+      - entity: light.light_5_2
+        element: light.light_5_2
+      - entity: light.light_6_1
+        element: light.light_6_1
+      - entity: light.light_6_2
+        element: light.light_6_2
+    tap_action: light.toggle
+    hold_action: more-info
+    state_action:
+      service: floorplan.class_set
+      service_data:
+        class: '${(entity.state === "on") ? "light-on" : "light-off"}'
+
+  - name: Motion
+    entity:
+      - binary_sensor.motion_3
+      - binary_sensor.motion_6
+    state_action:
+      service: floorplan.class_set
+      service_data:
+        class: '${(entity.state === "on") ? "motion-on" : "motion-off"}'
+
+  - name: Water
+    entity:
+      - binary_sensor.water_3
+    state_action:
+      service: floorplan.class_set
+      service_data:
+        class: '${(entity.state === "on") ? "water-on" : "water-off"}'
+
+  - name: Temperature/Humidity
+    entity:
+      - sensor.temperature_2
+      - sensor.temperature_3
+      - sensor.temperature_4
+      - sensor.temperature_6
+      - sensor.humidity_2
+      - sensor.humidity_3
+      - sensor.humidity_4
+      - sensor.humidity_6
+    state_action:
+      - service: floorplan.text_set
+        service_data:
+          text: '${Number.parseFloat(entity.state).toFixed(1)}${entity.attributes.unit_of_measurement}'
+
+  - name: CO2/Voc
+    entity:
+      - sensor.co2_6
+      - sensor.voc_2
+    state_action:
+      - service: floorplan.text_set
+        service_data:
+          text: '${(entity.state === "unavailable")?"N/A":entity.state}'

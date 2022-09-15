@@ -1,0 +1,36 @@
+/* Page background */
+
+#floorplan {
+	background: #000;
+}
+
+#floorplan > svg {
+	/* max-width: 1500px; */
+	/* margin: 0 !important; */
+	max-height: 920px;
+}
+
+/* SVG elements */
+
+svg * {
+	vector-effect: non-scaling-stroke !important;
+}
+
+#floorplan > svg svg {
+	padding: 10px;
+}
+
+#sidebar-bg {
+  fill: #000 !important;
+  stroke: none !important;
+}
+
+/* Buttons */
+
+.button-active {
+  opacity: 1;
+}
+
+.button-inactive {
+  opacity: 0.5;
+}

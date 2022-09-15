@@ -1,0 +1,14 @@
+kiosk_mode:
+  hide_header: true
+  hide_menubutton: true
+  hide_overflow: true
+  # hide_sidebar: true
+
+  mobile_settings:
+    hide_header: true
+    # hide_menubutton: true
+    hide_overflow: true
+    hide_sidebar: true
+
+views:
+  - !include example_view.yaml
