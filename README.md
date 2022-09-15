@@ -10,6 +10,7 @@ https://user-images.githubusercontent.com/78191171/190462547-12e55c77-c7e6-46ef-
 * [Sweet Home 3D](https://www.sweethome3d.com/) для создания 3D плана
 * [Home Assistant](https://www.home-assistant.io/)
 * [HA Floorplan](https://github.com/ExperienceLovelace/ha-floorplan/)
+* [Kiost Mode](https://github.com/maykar/kiosk-mode)
 
 ### Установка
 
