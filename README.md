@@ -33,4 +33,3 @@ docker compose up -d
 * Датчики движения: binary_sensor.motion_3, binary_sensor.motion_6
 * Датчик CO2: sensor.co2_6
 * Датчик VOC: sensor.voc_2
-
