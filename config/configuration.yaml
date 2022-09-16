@@ -9,6 +9,8 @@ recorder:
 frontend:
   themes: !include_dir_merge_named themes
 
+automation: !include automations.yaml
+
 lovelace:
   mode: yaml
   resources:
@@ -16,13 +18,6 @@ lovelace:
       type: module
     - url: /local/community/ha-floorplan/floorplan.js
       type: module
-  dashboards:
-    my-example:
-      title: "Example"
-      mode: yaml
-      icon: mdi:home
-      show_in_sidebar: true
-      filename: example.yaml
 
 sensor:
   - platform: time_date
@@ -58,3 +53,4 @@ template:
           {%- set sunpct = states('sensor.sunlight_pct') | float %}
           {%- set opacity = sunpct / 100 | float %}
           {{ opacity }}
+

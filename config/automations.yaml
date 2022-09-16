@@ -1,0 +1,22 @@
+- id: '1663267131941'
+  alias: Motion-activated Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.motion_6
+      light_target:
+        entity_id: light.light_6_1
+      no_motion_wait: 5
+- id: '1663294060664'
+  alias: Remove new devices notification
+  trigger:
+  - platform: state
+    entity_id: persistent_notification.config_entry_discovery
+    to: notifying
+  - platform: homeassistant
+    event: start
+  action:
+  - service: persistent_notification.dismiss
+    data:
+      notification_id: config_entry_discovery

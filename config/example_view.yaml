@@ -1,5 +1,5 @@
 theme: Floorplan
-path: view
+path: master
 panel: true
 type: panel
 icon: mdi:floor-plan
