@@ -24,7 +24,7 @@ docker compose up -d
 
 Если Вы используете Wirenboard то добавьте устройства в Home Assistant используя модуль [wb-mqtt-homeassistant](https://github.com/4mr/wb-mqtt-homeassistant).
 
-Для коректной работы примера необходимо чтобы id устройств в Home Assistant совпадали (можно переименовать id необходимых устройств в Home Assistant) с id в yaml/svg файлах.
+Для корректной работы примера необходимо чтобы id устройств в Home Assistant совпадали (можно переименовать id необходимых устройств в Home Assistant) с id в yaml/svg файлах.
 
 В примере использованы следующие id:
 * Зоны освещения: light.light_1, light.light_2, light.light_3, light.light_4, light.light_5_1, light.light_5_2, light.light_6_1, light.light_6_2
@@ -33,4 +33,3 @@ docker compose up -d
 * Датчики движения: binary_sensor.motion_3, binary_sensor.motion_6
 * Датчик CO2: sensor.co2_6
 * Датчик VOC: sensor.voc_2
-
